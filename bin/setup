@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require 'sqlite3'
+
+# Open database
+db = SQLite3::Database.new "study_diary.db"
+
+# Create table
+rows = db.execute <<-SQL
+  create table study_items (
+    id INTEGER PRIMARY KEY,
+    title VARCHAR(200),
+    category VARCHAR(100)
+  );
+SQL
